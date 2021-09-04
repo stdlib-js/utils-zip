@@ -155,6 +155,17 @@ console.log( zipped.join( '\n' ) );
 
 <!-- /.examples -->
 
+<section class="related">
+
+* * *
+
+## See Also
+
+-   [`@stdlib/utils/unzip`][@stdlib/utils/unzip]: Unzip a zipped array (i.e., a nested array of tuples).
+
+
+<!-- /.related -->
+
 
 <section class="main-repo" >
 
@@ -209,6 +220,12 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/utils-zip/main/LICENSE
+
+<!-- <related-links> -->
+
+[@stdlib/utils/unzip]: https://github.com/stdlib-js/stdlib
+
+<!-- </related-links> -->
 
 </section>
 
