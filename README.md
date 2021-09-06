@@ -228,7 +228,7 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/utils/unzip]: https://github.com/stdlib-js/stdlib
+[@stdlib/utils/unzip]: https://github.com/stdlib-js/utils-unzip
 
 <!-- </related-links> -->
 
