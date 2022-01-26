@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/utils-zip",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Generate array tuples from input arrays.",
   "license": "Apache-2.0",
   "author": {
