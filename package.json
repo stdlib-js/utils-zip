@@ -41,6 +41,7 @@
     "@stdlib/assert-is-array": "^0.0.x",
     "@stdlib/assert-is-boolean": "^0.0.x",
     "@stdlib/assert-is-plain-object": "^0.0.x",
+    "@stdlib/string-format": "^0.0.x",
     "@stdlib/types": "^0.0.x"
   },
   "devDependencies": {
