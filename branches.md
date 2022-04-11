@@ -46,7 +46,7 @@ click E href "https://github.com/stdlib-js/utils-zip/tree/deno"
 click F href "https://github.com/stdlib-js/utils-zip/tree/umd"
 ```
 
-[stdlib-url]: https://github.com/stdlib-js/utils-zip
+[stdlib-url]: https://github.com/stdlib-js/stdlib/tree/develop/lib/node_modules/%40stdlib/utils/zip
 [production-url]: https://github.com/stdlib-js/utils-zip/tree/production
 [deno-url]: https://github.com/stdlib-js/utils-zip/tree/deno
 [umd-url]: https://github.com/stdlib-js/utils-zip/tree/umd
