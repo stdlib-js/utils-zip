@@ -22,7 +22,7 @@ limitations under the License.
 
 This repository has the following branches:
 
--   **main**: default branch generated from the [stdlib project][stdlib], where all development takes place.
+-   **main**: default branch generated from the [stdlib project][stdlib-url], where all development takes place.
 -   **production**: [production build][production-url] of the package (e.g., reformatted error messages to reduce bundle sizes and thus the number of bytes transmitted over a network).
 -   **esm**: [ES Module][esm-url] branch for use via a `script` tag without the need for installation and bundlers.
 -   **deno**: [Deno][deno-url] branch for use in Deno.
@@ -38,7 +38,7 @@ C -->|bundle| D[esm];
 C -->|bundle| E[deno];
 C -->|bundle| F[umd];
 
-click A href "https://github.com/stdlib-js/stdlib/tree/develop/lib/node_modules/%40stdlib/utils/zip
+click A href "https://github.com/stdlib-js/stdlib/tree/develop/lib/node_modules/%40stdlib/utils/zip"
 click B href "https://github.com/stdlib-js/utils-zip/tree/main"
 click C href "https://github.com/stdlib-js/utils-zip/tree/production"
 click D href "https://github.com/stdlib-js/utils-zip/tree/esm"
@@ -46,7 +46,7 @@ click E href "https://github.com/stdlib-js/utils-zip/tree/deno"
 click F href "https://github.com/stdlib-js/utils-zip/tree/umd"
 ```
 
-[stdlib]: https://github.com/stdlib-js/utils-zip
+[stdlib-url]: https://github.com/stdlib-js/utils-zip
 [production-url]: https://github.com/stdlib-js/utils-zip/tree/production
 [deno-url]: https://github.com/stdlib-js/utils-zip/tree/deno
 [umd-url]: https://github.com/stdlib-js/utils-zip/tree/umd
