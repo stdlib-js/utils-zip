@@ -162,7 +162,7 @@ console.log( zipped.join( '\n' ) );
 
 ## See Also
 
--   <span class="package-name">[`@stdlib/utils/unzip`][@stdlib/utils/unzip]</span><span class="delimiter">: </span><span class="description">unzip a zipped array (i.e., a nested array of tuples).</span>
+-   <span class="package-name">[`@stdlib/utils-unzip`][@stdlib/utils/unzip]</span><span class="delimiter">: </span><span class="description">unzip a zipped array (i.e., a nested array of tuples).</span>
 
 </section>
 
