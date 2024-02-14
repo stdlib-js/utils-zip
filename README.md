@@ -50,6 +50,11 @@ limitations under the License.
 To use in Observable,
 
 ```javascript
+zip = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@umd/browser.js' )
+```
+The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/utils-zip/tags). For example,
+
+```javascript
 zip = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.0-umd/browser.js' )
 ```
 
@@ -62,7 +67,7 @@ var zip = require( 'path/to/vendor/umd/utils-zip/index.js' )
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.0-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -151,7 +156,7 @@ zipped = zip( arr, { 'arrays': true } );
 <html lang="en">
 <body>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.0-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
