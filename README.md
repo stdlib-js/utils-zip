@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@esm/index.mjs';
+import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.0-esm/index.mjs';
 ```
 
 #### zip( arr1, arr2,...\[, opts] )
@@ -129,7 +129,7 @@ zipped = zip( arr, { 'arrays': true } );
 <script type="module">
 
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@esm/index.mjs';
+import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.0-esm/index.mjs';
 
 var x = [];
 var y1 = [];
