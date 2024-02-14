@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/utils-zip",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Generate array tuples from input arrays.",
   "license": "Apache-2.0",
   "author": {
@@ -38,11 +38,11 @@
   },
   "dependencies": {
     "@stdlib/assert-has-own-property": "^0.1.1",
-    "@stdlib/assert-is-array": "^0.1.1",
-    "@stdlib/assert-is-boolean": "^0.1.1",
-    "@stdlib/assert-is-plain-object": "^0.1.1",
-    "@stdlib/string-format": "^0.1.1",
-    "@stdlib/types": "^0.2.0"
+    "@stdlib/assert-is-array": "^0.2.0",
+    "@stdlib/assert-is-boolean": "^0.2.0",
+    "@stdlib/assert-is-plain-object": "^0.2.0",
+    "@stdlib/string-format": "^0.2.0",
+    "@stdlib/types": "^0.3.1"
   },
   "devDependencies": {
     "@stdlib/constants-float64-eps": "^0.1.1",
