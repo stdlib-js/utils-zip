@@ -48,6 +48,11 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@deno/mod.js';
+```
+The previous example will load the latest bundled code from the deno branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/utils-zip/tags). For example,
+
+```javascript
 import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.2-deno/mod.js';
 ```
 
@@ -124,7 +129,7 @@ zipped = zip( arr, { 'arrays': true } );
 
 ```javascript
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
-import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.2-deno/mod.js';
+import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@deno/mod.js';
 
 var x = [];
 var y1 = [];
