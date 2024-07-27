@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@deno/mod.js';
+import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.2-deno/mod.js';
 ```
 
 #### zip( arr1, arr2,...\[, opts] )
@@ -124,7 +124,7 @@ zipped = zip( arr, { 'arrays': true } );
 
 ```javascript
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
-import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@deno/mod.js';
+import zip from 'https://cdn.jsdelivr.net/gh/stdlib-js/utils-zip@v0.2.2-deno/mod.js';
 
 var x = [];
 var y1 = [];
