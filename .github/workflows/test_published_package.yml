@@ -62,36 +62,21 @@ jobs:
       - name: 'Create test directory'
         run: mkdir test-published
 
-      # Copy example file:
-      - name: 'Copy example file'
-        run: cp examples/index.js test-published/
+      # Copy files:
+      - name: 'Copy files'
+        run: |
+          cp examples/index.js test-published/
+          cp package.json test-published/package.json
 
-      # Setup test package.json and install dependencies:
+      # Setup test environment:
       - name: 'Setup test environment'
         working-directory: test-published
         run: |
-          # Create basic package.json
-          echo '{
-            "name": "test-published",
-            "version": "1.0.0",
-            "private": true
-          }' > package.json
-          
-          # Copy dependencies and devDependencies separately
-          jq -r '.dependencies' ../package.json > deps.json
-          jq -r '.devDependencies' ../package.json > devDeps.json
-          
-          # Merge them into package.json
-          jq --slurpfile deps deps.json --slurpfile devDeps devDeps.json '. + {dependencies: $deps[0], devDependencies: $devDeps[0]}' package.json > temp.json && mv temp.json package.json
-          
           # Get package name
-          PACKAGE_NAME=$(jq -r '.name' ../package.json)
+          PACKAGE_NAME=$(jq -r '.name' package.json)
           
           # Modify example file
           sed -i "s|require( '\\.\\./lib' )|require( '$PACKAGE_NAME' )|" index.js
-          
-          # Clean up temporary files
-          rm deps.json devDeps.json
           
           # Install all dependencies
           npm install
