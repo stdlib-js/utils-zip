@@ -76,7 +76,7 @@ jobs:
           echo "Original content:"
           cat index.js
           
-          sed -i "s|require( '\\.\\./lib' )|require( '$PACKAGE_NAME' )|g" index.js
+          perl -pi -e "s|require\\( '\\.\\./lib' \\)|require('$PACKAGE_NAME')|g" index.js
           
           echo "After replacement:"
           cat index.js
