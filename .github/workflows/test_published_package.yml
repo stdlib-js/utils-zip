@@ -66,38 +66,24 @@ jobs:
       - name: 'Copy example file'
         run: cp examples/index.js test-published/
 
-      # Modify example file to use published package:
-      - name: 'Modify example file'
-        run: |
-          PACKAGE_NAME=$(node -p "require('./package.json').name")
-          sed -i "s|require( '\\.\\./lib' )|require( '$PACKAGE_NAME' )|" test-published/index.js
-
-      # Extract and install dependencies:
-      - name: 'Extract and install dependencies'
+      # Setup test package.json and install dependencies:
+      - name: 'Setup test environment'
         working-directory: test-published
         run: |
-          # Initialize new package
-          npm init -y
+          # Initialize new package.json with dependencies from main package
+          jq '. + {
+            "name": "test-published",
+            "version": "1.0.0",
+            "dependencies": input.dependencies,
+            "devDependencies": input.devDependencies
+          }' ../package.json > package.json
           
-          # Install the published package itself
-          PACKAGE_NAME=$(node -p "require('../package.json').name")
-          npm install $PACKAGE_NAME
+          # Get package name and modify example file
+          PACKAGE_NAME=$(jq -r .name ../package.json)
+          sed -i "s|require( '\\.\\./lib' )|require( '$PACKAGE_NAME' )|" index.js
           
-          # Extract all require statements from example file
-          REQUIRES=$(node -e "
-            const fs = require('fs');
-            const content = fs.readFileSync('index.js', 'utf8');
-            const matches = content.match(/require\\([^)]+\\)/g) || [];
-            const deps = matches
-              .map(m => m.match(/['\"]([@\\/\\w-]+)/)[1])
-              .filter(d => d.startsWith('@stdlib/'));
-            console.log(deps.join(' '));
-          ")
-          
-          # Install required dependencies
-          if [ ! -z "$REQUIRES" ]; then
-            npm install $REQUIRES
-          fi
+          # Install all dependencies
+          npm install
 
       # Run the example:
       - name: 'Run example'
