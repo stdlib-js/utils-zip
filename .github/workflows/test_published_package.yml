@@ -71,12 +71,20 @@ jobs:
           
           # Get package name and modify example file:
           PACKAGE_NAME=$(jq -r '.name' package.json)
-          sed -i "s|require( '\\.\\./lib' )|require( '$PACKAGE_NAME' )|" index.js
+
+          echo "Package name: $PACKAGE_NAME"
+          echo "Original content:"
+          cat index.js
+          
+          sed -i "s|require( '\\.\\./lib' )|require( '$PACKAGE_NAME' )|g" index.js
+          
+          echo "After replacement:"
+          cat index.js
           
           # Install all dependencies:
           npm install
           
-          # Run the examples:
+          # Run the example:
           node index.js
 
       # Send Slack notification if job fails:
