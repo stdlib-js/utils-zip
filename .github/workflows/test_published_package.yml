@@ -58,33 +58,26 @@ jobs:
           node-version: 20
         timeout-minutes: 5
 
-      # Create temporary directory for test:
-      - name: 'Create test directory'
-        run: mkdir test-published
-
-      # Copy files:
-      - name: 'Copy files'
+      # Create test directory and run examples:
+      - name: 'Create test directory and run examples'
         run: |
-          cp examples/index.js test-published/
-          cp package.json test-published/package.json
-
-      # Setup test environment:
-      - name: 'Setup test environment'
-        working-directory: test-published
-        run: |
-          # Get package name
-          PACKAGE_NAME=$(jq -r '.name' package.json)
+          cd ..
+          mkdir test-published
+          cd test-published
           
-          # Modify example file
+          # Copy necessary files:
+          cp $GITHUB_WORKSPACE/examples/index.js .
+          cp $GITHUB_WORKSPACE/package.json .
+          
+          # Get package name and modify example file:
+          PACKAGE_NAME=$(jq -r '.name' package.json)
           sed -i "s|require( '\\.\\./lib' )|require( '$PACKAGE_NAME' )|" index.js
           
-          # Install all dependencies
+          # Install all dependencies:
           npm install
-
-      # Run the example:
-      - name: 'Run example'
-        working-directory: test-published
-        run: node index.js
+          
+          # Run the examples:
+          node index.js
 
       # Send Slack notification if job fails:
       - name: 'Send notification to Slack in case of failure'
