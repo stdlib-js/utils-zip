@@ -71,15 +71,9 @@ jobs:
           
           # Get package name and modify example file:
           PACKAGE_NAME=$(jq -r '.name' package.json)
-
-          echo "Package name: $PACKAGE_NAME"
-          echo "Original content:"
-          cat index.js
+          ESCAPED_PACKAGE_NAME=$(echo "$PACKAGE_NAME" | sed 's/[\/&]/\\&/g')
           
-          perl -pi -e "s|require\\( '\\.\\./lib' \\)|require('$PACKAGE_NAME')|g" index.js
-          
-          echo "After replacement:"
-          cat index.js
+          sed -i "s/require( '.\/..\/lib' )/require( '$ESCAPED_PACKAGE_NAME' )/g" index.js
           
           # Install all dependencies:
           npm install
