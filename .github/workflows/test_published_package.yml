@@ -65,18 +65,28 @@ jobs:
           mkdir test-published
           cd test-published
           
-          # Copy necessary files:
+          # Copy example file:
           cp $GITHUB_WORKSPACE/examples/index.js .
-          cp $GITHUB_WORKSPACE/package.json .
+
+          # Create a minimal package.json
+          echo '{
+            "name": "test-published",
+            "version": "1.0.0",
+            "main": "index.js",
+            "dependencies": {}
+          }' > package.json
           
           # Get package name and modify example file:
-          PACKAGE_NAME=$(jq -r '.name' package.json)
+          PACKAGE_NAME=$(jq -r '.name' $GITHUB_WORKSPACE/package.json)
           ESCAPED_PACKAGE_NAME=$(echo "$PACKAGE_NAME" | sed 's/[\/&]/\\&/g')
           
           sed -i "s/require( '.\/..\/lib' )/require( '$ESCAPED_PACKAGE_NAME' )/g" index.js
-          
-          # Install all dependencies:
-          npm install
+
+          # Extract and install dependencies:
+          DEPS=$(grep -oP "require\(\s*'([^']+)'\s*\)" index.js | sed "s/require(\s*'//" | sed "s/'\s*)//" | grep -v "^\.")
+          for dep in $DEPS; do
+            npm install $dep --save
+          done
           
           # Run the example:
           node index.js
