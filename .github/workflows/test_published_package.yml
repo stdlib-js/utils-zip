@@ -21,11 +21,16 @@ name: test_published_package
 
 # Workflow triggers:
 on:
+  # Run workflow on a weekly schedule:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '25 13 * * 1'
+
   # Run workflow upon completion of `publish` workflow run:
   workflow_run:
     workflows: ["publish"]
     types: [completed]
-  
+
   # Allow workflow to be manually run:
   workflow_dispatch:
 
@@ -33,7 +38,7 @@ on:
 jobs:
   test-published:
     # Define a display name:
-    name: 'Test published package'
+    name: 'Test running examples of published package'
 
     # Define the type of virtual host machine:
     runs-on: ubuntu-latest
@@ -41,7 +46,7 @@ jobs:
     # Define environment variables:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    
+
     # Run workflow job if `publish` workflow run is successful or when the workflow is manually run:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
@@ -64,7 +69,7 @@ jobs:
           cd ..
           mkdir test-published
           cd test-published
-          
+
           # Copy example file:
           cp $GITHUB_WORKSPACE/examples/index.js .
 
@@ -75,11 +80,11 @@ jobs:
             "main": "index.js",
             "dependencies": {}
           }' > package.json
-          
+
           # Get package name and modify example file:
           PACKAGE_NAME=$(jq -r '.name' $GITHUB_WORKSPACE/package.json)
           ESCAPED_PACKAGE_NAME=$(echo "$PACKAGE_NAME" | sed 's/[\/&]/\\&/g')
-          
+
           sed -i "s/require( '.\/..\/lib' )/require( '$ESCAPED_PACKAGE_NAME' )/g" index.js
 
           # Extract and install dependencies:
@@ -87,7 +92,7 @@ jobs:
           for dep in $DEPS; do
             npm install $dep --save
           done
-          
+
           # Run the example:
           node index.js
 
