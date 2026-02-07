@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/utils-zip",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Generate array tuples from input arrays.",
   "license": "Apache-2.0",
   "author": {
@@ -37,17 +37,17 @@
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
   "dependencies": {
-    "@stdlib/assert-has-own-property": "^0.2.2",
-    "@stdlib/assert-is-array": "^0.2.2",
-    "@stdlib/assert-is-boolean": "^0.2.2",
-    "@stdlib/assert-is-plain-object": "^0.2.2",
-    "@stdlib/string-format": "^0.2.2",
+    "@stdlib/assert-has-own-property": "^0.2.3",
+    "@stdlib/assert-is-array": "^0.2.3",
+    "@stdlib/assert-is-boolean": "^0.2.3",
+    "@stdlib/assert-is-plain-object": "^0.2.3",
+    "@stdlib/string-format": "^0.2.3",
     "@stdlib/types": "^0.4.3",
-    "@stdlib/error-tools-fmtprodmsg": "^0.2.2"
+    "@stdlib/error-tools-fmtprodmsg": "^0.2.3"
   },
   "devDependencies": {
-    "@stdlib/constants-float64-eps": "^0.2.2",
-    "@stdlib/random-base-randu": "^0.2.1",
+    "@stdlib/constants-float64-eps": "^0.2.3",
+    "@stdlib/random-base-randu": "^0.2.2",
     "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
     "istanbul": "^0.4.1",
     "tap-min": "git+https://github.com/Planeshifter/tap-min.git",
